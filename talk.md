@@ -128,14 +128,147 @@ GUI vs CLI
 
 ---
 
+## Getting help
+
+```
+$ help
+GNU bash, version 4.4.7(1)-release (x86_64-pc-linux-gnu)
+These shell commands are defined internally.  Type `help' to see this list.
+Type `help name' to find out more about the function `name'.
+Use `info bash' to find out more about the shell in general.
+Use `man -k' or `info' to find out more about commands not in this list.
+
+A star (*) next to a name means that the command is disabled.
+
+ job_spec [&]                            history [-c] [-d offset] [n] or hist>
+ (( expression ))                        if COMMANDS; then COMMANDS; [ elif C>
+ . filename [arguments]                  jobs [-lnprs] [jobspec ...] or jobs >
+ :                                       kill [-s sigspec | -n signum | -sigs>
+ [ arg... ]                              let arg [arg ...]
+ [[ expression ]]                        local [option] name[=value] ...
+ alias [-p] [name[=value] ... ]          logout [n]
+ bg [job_spec ...]                       mapfile [-d delim] [-n count] [-O or>
+ bind [-lpsvPSVX] [-m keymap] [-f file>  popd [-n] [+N | -N]
+ break [n]                               printf [-v var] format [arguments]
+ builtin [shell-builtin [arg ...]]       pushd [-n] [+N | -N | dir]
+ caller [expr]                           pwd [-LP]
+ case WORD in [PATTERN [| PATTERN]...)>  read [-ers] [-a array] [-d delim] [->
+ cd [-L|[-P [-e]] [-@]] [dir]            readarray [-n count] [-O origin] [-s>
+ command [-pVv] command [arg ...]        readonly [-aAf] [name[=value] ...] o>
+ compgen [-abcdefgjksuv] [-o option] [>  return [n]
+ complete [-abcdefgjksuv] [-pr] [-DE] >  select NAME [in WORDS ... ;] do COMM>
+ compopt [-o|+o option] [-DE] [name ..>  set [-abefhkmnptuvxBCHP] [-o option->
+ continue [n]                            shift [n]
+ coproc [NAME] command [redirections]    shopt [-pqsu] [-o] [optname ...]
+ declare [-aAfFgilnrtux] [-p] [name[=v>  source filename [arguments]
+ dirs [-clpv] [+N] [-N]                  suspend [-f]
+ disown [-h] [-ar] [jobspec ... | pid >  test [expr]
+ echo [-neE] [arg ...]                   time [-p] pipeline
+ enable [-a] [-dnps] [-f filename] [na>  times
+ eval [arg ...]                          trap [-lp] [[arg] signal_spec ...]
+ exec [-cl] [-a name] [command [argume>  true
+ exit [n]                                type [-afptP] name [name ...]
+ export [-fn] [name[=value] ...] or ex>  typeset [-aAfFgilnrtux] [-p] name[=v>
+ false                                   ulimit [-SHabcdefiklmnpqrstuvxPT] [l>
+ fc [-e ename] [-lnr] [first] [last] o>  umask [-p] [-S] [mode]
+ fg [job_spec]                           unalias [-a] name [name ...]
+ for NAME [in WORDS ... ] ; do COMMAND>  unset [-f] [-v] [-n] [name ...]
+ for (( exp1; exp2; exp3 )); do COMMAN>  until COMMANDS; do COMMANDS; done
+ function name { COMMANDS ; } or name >  variables - Names and meanings of so>
+ getopts optstring name [arg]            wait [-n] [id ...]
+ hash [-lr] [-p pathname] [-dt] [name >  while COMMANDS; do COMMANDS; done
+ help [-dms] [pattern ...]               { COMMANDS ; }
+```
+
+---
+### Manual pages
+
+```
+$ man echo
+ECHO(1)                          User Commands                         ECHO(1)
+
+NAME
+       echo - display a line of text
+
+SYNOPSIS
+       echo [SHORT-OPTION]... [STRING]...
+       echo LONG-OPTION
+
+DESCRIPTION
+       Echo the STRING(s) to standard output.
+
+       -n     do not output the trailing newline
+
+       -e     enable interpretation of backslash escapes
+
+       -E     disable interpretation of backslash escapes (default)
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+       If -e is in effect, the following sequences are recognized:
+
+       \\     backslash
+
+       \a     alert (BEL)
+
+       \b     backspace
+
+       \c     produce no further output
+
+       \e     escape
+
+       \f     form feed
+
+       \n     new line
+
+       \r     carriage return
+
+       \t     horizontal tab
+
+       \v     vertical tab
+
+       \0NNN  byte with octal value NNN (1 to 3 digits)
+
+       \xHH   byte with hexadecimal value HH (1 to 2 digits)
+
+       NOTE: your shell may have its own version of echo, which usually super‐
+       sedes the version described here.  Please refer to your  shell's  docu‐
+       mentation for details about the options it supports.
+
+AUTHOR
+       Written by Brian Fox and Chet Ramey.
+
+REPORTING BUGS
+       GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+       Report echo translation bugs to <http://translationproject.org/team/>
+
+COPYRIGHT
+       Copyright  ©  2016  Free Software Foundation, Inc.  License GPLv3+: GNU
+       GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+       This is free software: you are free  to  change  and  redistribute  it.
+       There is NO WARRANTY, to the extent permitted by law.
+
+SEE ALSO
+       Full documentation at: <http://www.gnu.org/software/coreutils/echo>
+       or available locally via: info '(coreutils) echo invocation'
+
+GNU coreutils 8.26                March 2017                           ECHO(1)
+```
+---
+
 ## Looking around
 
-* **prompt** (*noun*) an act of encouraging a hesitating speaker. 
+* **prompt** (*noun*) an act of encouraging a hesitating speaker. (Wikipedia)
+
+
 * **REPL** read-execute-print-loop
 
 
 
-{% if True %}
+{% if False %}
 <div class="col-md-12">
 <div class="embed-responsive embed-responsive-16by9">
 <iframe src="https://localhost:4200"></iframe>
@@ -144,14 +277,16 @@ GUI vs CLI
 {% endif %}
 <div class="col-md-6">
 <ul>
-<li><tt>echo</tt></li>
 <li><tt>pwd</tt></li>
+<li><tt>cd</tt></li>
 </ul>
 </div>
 <div class="col-md-6">
 <li><tt>ls</tt></li>
-<li><tt>env</tt></li>
+<li><tt>cat</tt></li>
 </div>
+
+---
 
 
 
@@ -204,11 +339,30 @@ questions we may want to ask
 ---
 ## Moving around
 
-* **cd** - change directory
-* shortcuts: ~ . .. -
-* relative absolute path
+* *cd* - change directory
+* shortcuts: 
+	- ~ (home) 
+	- . (current directory) 
+	- .. (parent directory)
+	
+    
+* relative/absolute path of a file 
 
-{% if True %}
+Example
+
+```
+/home/guest/dir1  # <- current directory
+└── file1
+/home/guest/dir2
+└── file2
+```
+* You are in dir1 referencing file2
+* absolute path: `/home/guest/dir2/file2`
+* relative path: `../dir2/file2`
+
+
+
+{% if False %}
 <div class="col-md-9">
 <div class="embed-responsive embed-responsive-4by3">
 <iframe src="https://localhost:4200"></iframe>
@@ -236,19 +390,20 @@ A useful command is `cd -` if you swap between two different directories
 ## Working with files and direcories
 
 
-* **mkdir** create directory
-* **nano file** edit a file
-* **cat** print contents of files
+* `mkdir` create directory
+* `rmdir` remove directory
+* `nano file` edit/create a file
+* `cat` print contents of files
+* `rm` remove file
 
 
-{% if True %}
+{% if False %}
 <div class="col-md-9">
 <div class="embed-responsive embed-responsive-4by3">
 <iframe src="https://localhost:4200"></iframe>
 </div>
 </div>
 {% else %}
-live = {{ live }}
 ```
 $ mkdir thesis
 ```
@@ -262,49 +417,28 @@ $ mkdir thesis
 
 
 ---
-### Setup 
-* Download http://swcarpentry.github.io/shell-novice/data/shell-novice-data.zip
-* unzip
+
+### Special characters
+
+* `>`: redirect (screen) output
+	```$ ls > filelist```
+* `<`: redirect (terminal) input
+    ```$ cat <```
+* `|`: piping (passing output to input) `$ cat file | sort`
+* `*` wildcard (matches anything) `$ ls *.txt`
+* `?` wildcard (matches any single character) `$ ls ?.txt`
+* `[]` selection
 
 
-{% if True %}
-<div class="col-md-12">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe src="https://localhost:4200"></iframe>
-</div>
-</div>
-{% endif %}
+```
+$ ls h*.txt
+hello.txt  hi.txt  ho.txt  h.txt  hx.txt
+$ ls h?.txt
+hi.txt ho.txt hx.txt
+$ ls h[io].txt
+hi.txt ho.txt
 
----
-## Pipes and filters
-
-<div class="col-md-12">
-<img class='img-responsive' src="http://swcarpentry.github.io/shell-novice/fig/redirects-and-pipes.png">
-</div>
-
-???
-15min
-
-* the most powerful feature
-* in moleles: wc *.pdb
-* \* is a wildcard that matches everything
-* \? is a wildcard that matches any single
-* line-count results > redirect to a file
-* sort to another file
-* smallest / largest file
-* head/tail
-* don't redirect to the same file
-* skip intermediate 'lengths' by using ip instead
-* stdio/stdout
-
-* sample directory notrh
-* select [AB] files
-
-* animals: find the number of unique
-* `cut -d, -f 2 animals.txt | sort | uniq`
-  
-
-
+```
 ---
 ## Repetition
 
@@ -312,7 +446,7 @@ $ mkdir thesis
 * loop (for-loop, do-loop)
 
 
-{% if True %}
+{% if False %}
 <div class="col-md-9">
 <div class="embed-responsive embed-responsive-4by3">
 <iframe src="https://localhost:4200"></iframe>
@@ -341,7 +475,7 @@ done
 
 
 ???
-* explatin loop variable/loop value
+* explain loop variable/loop value
 
 * exercise: backup a lot of files
 * `cp *.dat *.dat.bkp`
@@ -363,26 +497,44 @@ done
 * nested loop
 
 ---
-## Shell scripts
-???
-Saving commands in a file
---- 
-## Finding things
 
-???
+## Branching: `if` statements
+
+Control characters
+
+* `==`: equality
+* `!=`: inequality
+* `-r` existing (about files)
+* `-x` executable (about files)
+* `-d` existing directory 
+
+```
+$ if [ $a == "b" ]
+$ then
+$ echo yes
+$ else
+$ echo no
+$ fi
+yes
+```
+
+Shortcut control characters
+
+* `&&` continue if ok (exit status zero)
+* `||` continue if not ok (exit status non-zero)
+
 ---
 
-## The exercise
+##  Scripts
 
-You are a Marine biologist 
-
-* You have 1520 samples
-* Run each sample through an assay for relative abundance of 300 proteins
-* Calculate statistics with your supervisors program `goostat`
-* Compare results with `goodiff`
-* Write up results
-* Collecting commands in scripts
-* Finding stuff
+* Save bash commands in a file
+* make the file executable
+* execute file with  `bash file` or `./file`
+* put it in a directory in your `PATH`
 
 ---
 
+
+### Bash reference summary
+
+http://swcarpentry.github.io/shell-novice/reference/
