@@ -1,3 +1,6 @@
 [submodule "refreeze"]
 	path = refreeze
 	url = https://github.com/vahtras/refreeze.git
+[submodule "refreeze-fork"]
+	path = refreeze-fork
+	url = https://github.com/vahtras/refreeze.git
